@@ -13,10 +13,24 @@ builder.Services.AddDbContext<ImdbDataContext>();
 //Services
 builder.Services.AddScoped<IMovieRepository, MovieService>();
 
+
+//CORS
+builder.Services.AddCors(cors =>
+{
+    cors.AddPolicy("CORS", x=>
+    {
+        x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+    });
+});
+
 var app = builder.Build();
 
 
+app.UseCors("CORS");
+
 app.UseRouting();
+
+app.UseAuthorization();
 
 app.MapControllers();
 

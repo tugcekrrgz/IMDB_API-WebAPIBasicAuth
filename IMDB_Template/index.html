@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imdb Top1000 Movies</title>
+    <!--Bootstrap-->
+    <link href="lib/boostrap/css/bootstrap.css" rel="stylesheet" />
+
+    <!--Custom Css-->
+    <link href="site.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Imdb Top1000</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Filmler</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <button class="btn btn-outline-primary me-2" type="submit">
+              Giriş Yap
+            </button>
+            <button class="btn btn-primary" type="submit">Kaydol</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!--Main-->
+    <main class="container">
+      <section>
+        <div class="card">
+          <div class="card-header text-center">
+            <input
+            id="search"
+                class="form-control"
+                type="search"
+                placeholder="Film ara"
+                aria-label="Search"
+              />
+              <div class="text-center">
+                  <button class="btn btn-outline-dark" id="randomMovie">Rastgele Film</button>
+                  <button class="btn btn-outline-dark">2015'den sonra</button>
+                  <button class="btn btn-outline-dark">2015'den önce</button>
+                  <button class="btn btn-outline-dark">Rating 70 üstü</button>
+              </div>
+          </div>
+          <div class="card-body">
+            <div class="row gy-3" id="movieRow">
+              <!--Ajax Result Begin-->
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--Footer-->
+
+    <!--Jquery-->
+    <script src="lib/jquery/jquery-3.7.0.js"></script>
+    <!--Bootstrap Js-->
+    <script src="lib/boostrap/js/bootstrap.js"></script>
+    <!--Bundle Js-->
+    <script src="lib/boostrap/js/bootstrap.bundle.js"></script>
+    <!------->
+    <!--Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--Custom Js-->
+    <script src="main.js"></script>
+  </body>
+</html>
