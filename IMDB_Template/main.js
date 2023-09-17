@@ -75,9 +75,24 @@ $(document).ready(function(){
        
     })
 
-    //Random Button event
+    //Random Button Event
     $("#randomMovie").on("click",function(){
         GetRandomMovie();
+    })
+
+    //Before 2015 Movie Event
+    $("#before2015Movies").on("click",function(){
+        Before2015Movie();
+    })
+
+    //After 2015 Moie Event
+    $("#after2015Movies").on("click",function(){
+        After2015Movie();
+    })
+
+    //Rating Above 70 Event
+    $("#ratingAbove70").on("click",function(){
+        RatingAbove70();
     })
 
     //FilterFunction
@@ -120,6 +135,58 @@ $(document).ready(function(){
                 </div>
             </div>
         `)
+    }
+
+    function Before2015Movie(movies){
+        $.ajax({
+            url:`${URL}/before2015`,
+            type:'Get',
+            success:function(data){
+                MoviesCard(data);
+                console.log(data);
+            },
+            error:function(p1,p2,p3){
+                Swal.fire(
+                    'Hata!',
+                    'Servera ulaşılamıyor!',
+                    'error'
+                )
+            }
+        })
+    }
+
+    function After2015Movie(){
+        $.ajax({
+            url:`${URL}/after2015`,
+            type:'Get',
+            success:function(data){
+                MoviesCard(data);
+            },
+            error:function(p1,p2,p3){
+                Swal.fire(
+                    'Hata!',
+                    'Servera ulaşılamıyor!',
+                    'error'
+                )
+            }
+        })
+    }
+
+    function RatingAbove70(){
+        $.ajax({
+            url:`${URL}/ratingabove70`,
+            type:'Get',
+            success:function(data){
+                MoviesCard(data);
+            },
+            error:function(p1,p2,p3){
+                Swal.fire(
+                    'Hata!',
+                    'Servera ulaşılamıyor!',
+                    'error'
+                )
+            }
+        })
     }
 
 

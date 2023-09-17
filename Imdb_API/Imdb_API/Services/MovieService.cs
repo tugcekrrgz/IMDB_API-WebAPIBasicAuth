@@ -13,6 +13,33 @@ namespace Imdb_API.Services
         {
             _context = context;
         }
+
+        public List<MovieDTO> After2015()
+        {
+            var movies = _context.Movies.Where(x => x.Year >= 2015).Select(x => new MovieDTO
+            {
+                Id = x.Id,
+                Title=x.Title,
+                Description=x.Description,
+                Year = x.Year,
+                Rating = x.Rating
+            }).OrderByDescending(x => x.Year).ToList();
+            return movies;
+        }
+
+        public List<MovieDTO> Before2015()
+        {
+            var movies = _context.Movies.Where(x => x.Year < 2015).Select(x => new MovieDTO
+            {
+                Id = x.Id,
+                Title = x.Title,
+                Description = x.Description,
+                Year = x.Year,
+                Rating = x.Rating
+            }).OrderByDescending(x=> x.Year).ToList();
+            return movies;
+        }
+
         public List<MovieDTO> GetAllMovies()
         {
             var movies= _context.Movies.Select(x => new MovieDTO
@@ -22,7 +49,7 @@ namespace Imdb_API.Services
                 Year = x.Year,
                 Description=x.Description,
                 Rating = x.Rating
-            }).ToList();
+            }).OrderByDescending(x => x.Year).ToList();
 
             return movies;
         }
@@ -42,6 +69,19 @@ namespace Imdb_API.Services
             }).FirstOrDefault();
 
             return movie;
+        }
+
+        public List<MovieDTO> RatingAbove70()
+        {
+            var movies = _context.Movies.Where(x => x.Rating >= 70).Select(x => new MovieDTO
+            {
+                Id = x.Id,
+                Title=x.Title,
+                Description=x.Description,
+                Rating=x.Rating,
+                Year=x.Year
+            }).OrderByDescending(x => x.Rating).ToList();
+            return movies;
         }
 
         public List<MovieDTO> SearchMovies(string value)
